@@ -1,0 +1,14 @@
+function dy=odewithoutcontrol(t,y)
+beta=0.02763/1000;
+rho=2.1;
+tau=1/(60);
+gamma=1/120;
+k=0.2;
+mu=1/(60.5);
+n=0.9;
+alpha=1.1*mu;
+dy=zeros(4,1);
+dy(1)=alpha-beta*(y(2)+y(3))*y(1)-mu*y(1);
+dy(2)=beta*(y(2)+y(3))*y(1)-tau*(1-k)*y(2)-k*rho*y(2)-mu*y(2);
+dy(3)=k*rho*y(2)-gamma*y(3)-mu*y(3);
+dy(4)=tau*(1-k)*y(2)+gamma*y(3)-n*mu*y(4);
